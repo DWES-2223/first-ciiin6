@@ -5,7 +5,7 @@
     <title>Formulari</title>
 </head>
 <body>
-    <h1>Formulari pedido supermecat</h1>
+    <h1>Formulari pedido supermercat</h1>
     <?php
         if (isset($_GET['quantitat'])){ ?>
             <form method="post" action="244b.php">

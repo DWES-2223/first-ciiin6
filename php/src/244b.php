@@ -7,7 +7,7 @@
     <title>Pedido</title>
 </head>
 <body>
-<h1>Pedido supermecat</h1>
+<h1>Pedido supermercat</h1>
 <?php
 if (!empty($productes)){ ?>
     <table border="1">
