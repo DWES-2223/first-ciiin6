@@ -4,6 +4,8 @@
  }
 
  function arrayAleatori(int $tam, int $min, int $max) : array {
+
+     $arrayAleatori = [];
      for ($i = 0; $i < $tam; $i++){
          $num = rand($min,$max);
          $arrayAleatori[] = $num;
@@ -41,10 +43,12 @@ function concatenar(...$paraules) : string {
          $cadena .= $paraula . " ";
      }
      return  trim($cadena);
+     //return implode(' ', $paraules);
 }
 
 function digits(int $num): int {
-     return strlen((string)$num);
+     $digit = strlen((string)$num);
+     return ($num > 0)? $digit : $digit-1 ;
 }
 
 function digitsN(int $num, int $post): int {
@@ -60,3 +64,12 @@ function llevaDavant(int $num, int $cant): int {
     $posicio = digits($num) - $cant;
     return (int)substr((string) $num,-$posicio,$posicio);
 }
+
+function peseta2euros(int $num,$cot = 166.3860): float {
+    return $num / $cot;
+}
+
+function euro2pesetes(int $num,$cot = 166.3860): float {
+    return $num * $cot;
+}
+
