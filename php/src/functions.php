@@ -30,10 +30,10 @@ function jove ($anysNaixement,$dataRecord) {
     $edatJove = 0;
     for ($i = 0; $i < count($anysNaixement); $i++) {
         $edat = any($dataRecord[$i]) - $anysNaixement[$i];
-         if($i == 0 || $edat < $edatJove){
-             $edatJove = any($dataRecord[$i]) - $anysNaixement[$i];
-             $jove = [$i,$edatJove];
-         }
+        if($i == 0 || $edat < $edatJove){
+            $edatJove = any($dataRecord[$i]) - $anysNaixement[$i];
+            $jove = [$i,$edatJove];
+        }
     }
     return $jove;
 }

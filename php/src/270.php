@@ -12,9 +12,7 @@ include_once 'atletes.php';
 if (!empty($records)) { ?>
     <table>
         <!-- Capçalera de la taula -->
-        <thead>
-        <tr>
-            <th>Prova</th>
+        <tr><th>Prova</th>
             <th>Marca</th>
             <th>Atleta</th>
             <th>Natalici</th>
@@ -22,11 +20,8 @@ if (!empty($records)) { ?>
             <th>Data</th>
             <th>Lloc</th>
         </tr>
-        </thead>
         <!-- Cos de la taula -->
-        <tbody>
-        <?php
-        foreach ($records as $prova => $record) {
+        <?php foreach ($records as $prova => $record) {
             include '270a.php';
         }
         ?>
@@ -38,6 +33,5 @@ if (!empty($records)) { ?>
     <?php
 }
 ?>
-
 </body>
 </html>

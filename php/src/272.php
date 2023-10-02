@@ -23,7 +23,7 @@ if (!empty($records)) { ?>
     </p>
     <h2>Taula récords:</h2>
     <?php
-        include_once '270.php';
+    include_once '270.php';
 } else {
     ?>
     <p>No hi ha dades per a mostrar</p>
