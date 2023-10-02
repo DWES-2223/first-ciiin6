@@ -2,7 +2,7 @@
 
 class ArraysCest
 {
-    /*
+/*
     public function _before(AcceptanceTester $I)
     {
     }
@@ -29,7 +29,7 @@ class ArraysCest
 
     public function try234WorksTest(AcceptanceTester $I)
     {
-        $I->amOnPage('/234.php');
+        $I->amOnPage('/235.php');
 
         $I->seeInSource('<table> <thead> <tr> <th>Nom</th> <th>Alçada</th> </tr> </thead>');
 
@@ -41,7 +41,7 @@ class ArraysCest
 
         $I->seeInSource('<table> <thead> <tr> <th>Nom</th> <th>Alçada</th> <th>Email</th> </tr> </thead>');
 
-    }
-    */
+    }*/
+
 
 }

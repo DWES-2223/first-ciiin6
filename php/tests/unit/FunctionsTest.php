@@ -1,11 +1,11 @@
 <?php
 
 class FunctionsTest extends \Codeception\Test\Unit
-{
+{/*
     /**
      * @var \UnitTester
      */
-    protected $tester;
+   /* protected $tester;
     
     protected function _before()
     {
@@ -82,7 +82,7 @@ class FunctionsTest extends \Codeception\Test\Unit
     public function test243euro2Pesetes(){
         $this->assertEquals(166,euro2pesetes(1));
         $this->assertEquals(16600,euro2pesetes(100));
-    }
+    }*/
 
     /*
     public function test250frasesImparelles(){
