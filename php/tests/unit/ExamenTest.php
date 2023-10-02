@@ -1,12 +1,12 @@
 <?php
 
-class ActivitatPHP extends \Codeception\Test\Unit
+class ExamenTest extends \Codeception\Test\Unit
 {
     /**
      * @var \UnitTester
      */
     protected $tester;
-
+    
     protected function _before()
     {
         include_once('./src/functions.php');
@@ -32,5 +32,14 @@ class ActivitatPHP extends \Codeception\Test\Unit
        $this->assertEquals('barcelona', laureado(['barcelona','madrid','barcelona','alcoi','alcoi','barcelona']));
     }
 
+    public function test273Jove()
+    {
+        $this->assertEquals([1,18],jove(['1980','1975'],['01.01.1999','01.01.1993']));
+        $this->assertEquals([2,16],jove(['1980','1975','2000'],['01.01.1999','01.01.1993','01.01.2016']));
+    }
+
+    public function test273Any(){
+        $this->assertEquals('1999', any('01.12.1999'));
+    }
 
 }
