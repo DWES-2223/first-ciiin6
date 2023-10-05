@@ -2,7 +2,6 @@
 
 class ActivitatPOO
 {
-    /*
     const INICI = '/inici.php';
     const INICI2 = '/inici2.php';
     const INICI3 = '/inici3.php';
@@ -46,6 +45,4 @@ class ActivitatPOO
         $I->see('Alquilado soporte a: Pablo Picasso');
         $I->seeInSource('<strong>Cliente 0:</strong>Amancio Ortega<br/>Alquiles actuales: 0');
     }
-    */
-
 }
