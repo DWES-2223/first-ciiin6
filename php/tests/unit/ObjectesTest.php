@@ -13,12 +13,12 @@ class ObjectesTest extends \Codeception\Test\Unit
         include_once './src/Persona7.php';
         include_once './src/Persona8.php';
         include_once './src/Empleado.php';
-        /*include_once('./src/JSerializable.php');
-        include_once('./src/Person.php');
-        include_once('./src/Worker.php');
-        include_once('./src/Manager.php');
-        include_once('./src/Employee.php');
-        include_once('./src/Enterprise.php');*/
+       // include_once './src/JSerializable.php';
+        include_once './src/Person.php';
+        include_once './src/Worker.php';
+        include_once './src/Manager.php';
+        include_once './src/Employee.php';
+        /*include_once './src/Enterprise.php';*/
 
     }
 
@@ -110,13 +110,13 @@ class ObjectesTest extends \Codeception\Test\Unit
     }
 
     public function test310(){
-        $empleado = new Employee(horasTrabajadas: 40,precioPorHora: 20, nombre:'Ignasi',apellidos: 'Gomis Mullor',edat: '54');
+        $empleado = new Employee(horasTrabajadas: 40,precioPorHora: 20, nom:'Ignasi',cognoms: 'Gomis Mullor',edat: '54');
         $empleado->anyadirTelefono(12345678);
         $empleado->anyadirTelefono(87654321);
         $this->assertEquals('<p>Ignasi Gomis Mullor</p><ul><li>12345678</li><li>87654321</li></ul>',$empleado->__toString());
         $this->assertEquals(800,$empleado->calcularSueldo());
         $this->assertEquals(false,$empleado->debePagarImpuestos());
-        $empleado = new Manager(salari: 3000, nombre:'Ignasi',apellidos: 'Gomis Mullor',edat: '54');
+        $empleado = new Manager(salari: 3000, nom:'Ignasi',cognoms: 'Gomis Mullor',edat: '54');
         $empleado->anyadirTelefono(12345678);
         $empleado->anyadirTelefono(87654321);
         $this->assertEquals('<p>Ignasi Gomis Mullor</p><ul><li>12345678</li><li>87654321</li></ul>',$empleado->__toString());
@@ -125,8 +125,8 @@ class ObjectesTest extends \Codeception\Test\Unit
     }
 
     public function test311(){
-        $empleado = new Employee(horasTrabajadas: 150,precioPorHora: 12, nombre:'Pepe',apellidos: 'Botera',edat: '24');
-        $manager = new Manager(salari: 4000, nombre:'Ignasi',apellidos: 'Gomis Mullor',edat: '54');
+        $empleado = new Employee(horasTrabajadas: 150,precioPorHora: 12, nom:'Pepe',cognoms: 'Botera',edat: '24');
+        $manager = new Manager(salari: 4000, nom:'Ignasi',cognoms: 'Gomis Mullor',edat: '54');
         $empresa = new Enterprise('CIP FP BATOI','Serreta 8');
         $empresa->addWorker($empleado);
         $empresa->addWorker($manager);
@@ -135,10 +135,10 @@ class ObjectesTest extends \Codeception\Test\Unit
     }
 
     public function test312(){
-        $empleado = new Employee(horasTrabajadas: 150,precioPorHora: 12, nombre:'Pepe',apellidos: 'Botera',edat: '24');
+        $empleado = new Employee(horasTrabajadas: 150,precioPorHora: 12, nom:'Pepe',cognoms: 'Botera',edat: '24');
         $this->assertEquals('{"nombre":"Pepe","apellidos":"Botera","edat":"24","telefonos":[],"horasTrabajadas":150,"precioPorHora":12}',$empleado->toJSON());
         $this->assertEquals($empleado->toJSON(),unserialize($empleado->toSerialize())->toJSON());
-        $manager = new Manager(salari: 4000, nombre:'Ignasi',apellidos: 'Gomis Mullor',edat: '54');
+        $manager = new Manager(salari: 4000, nom:'Ignasi',cognoms: 'Gomis Mullor',edat: '54');
         $this->assertEquals('{"nombre":"Ignasi","apellidos":"Gomis Mullor","edat":"54","telefonos":[],"salari":4000}',$manager->toJSON());
         $this->assertEquals($manager->toJSON(),unserialize($manager->toSerialize())->toJSON());
         $empresa = new Enterprise('CIP FP BATOI','Serreta 8');

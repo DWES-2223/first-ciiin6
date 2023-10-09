@@ -1,8 +1,8 @@
 <?php
 
-class Empleado extends Persona8 {
-    protected int $sou;
+abstract class Worker extends Person {
     protected $telefons = array();
+    protected int $sou;
 
     public function setSueldo(int $sou): void
     {
@@ -43,7 +43,7 @@ class Empleado extends Persona8 {
 
     public static function toHtml(Persona8|Persona $emp): string {
         $cadena = Persona8::toHtml($emp);
-        if ($emp instanceof Empleado && count($emp->telefons) > 0){
+        if ($emp instanceof Worker && count($emp->telefons) > 0){
             $cadena .= "<ul>";
             foreach ($emp->telefons as $telefon) {
                 $cadena .= "<li>" . $telefon . "</li>";

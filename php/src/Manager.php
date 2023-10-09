@@ -1,12 +1,12 @@
 <?php
 
-class Empleado extends Persona8 {
-    protected int $sou;
-    protected $telefons = array();
+class Manager extends Worker {
+    protected int $salari;
 
-    public function setSueldo(int $sou): void
+    public function __construct(int $salari,string $nom, string $cognoms, string $edat)
     {
-        $this->sou = $sou;
+        parent::__construct($nom,$cognoms,$edat);
+        $this->salari = $salari;
     }
 
     public function setTelefons(array $telefons): void
@@ -15,14 +15,13 @@ class Empleado extends Persona8 {
     }
 
 
-    public function getSou(): int
-    {
-        return $this->sou;
-    }
-
     public function getTelefons(): array
     {
         return $this->telefons;
+    }
+
+    public function calcularSueldo(): int{
+        return $this->salari + ($this->salari * $this->edat / 100);
     }
 
     public function anyadirTelefono(int $telefono) : void {
@@ -38,12 +37,12 @@ class Empleado extends Persona8 {
     }
 
     public function debePagarImpuestos(): bool {
-        return $this->sou > 3333;
+        return $this->calcularSueldo() > 3333;
     }
 
     public static function toHtml(Persona8|Persona $emp): string {
         $cadena = Persona8::toHtml($emp);
-        if ($emp instanceof Empleado && count($emp->telefons) > 0){
+        if ($emp instanceof Manager && count($emp->telefons) > 0){
             $cadena .= "<ul>";
             foreach ($emp->telefons as $telefon) {
                 $cadena .= "<li>" . $telefon . "</li>";
@@ -51,18 +50,5 @@ class Empleado extends Persona8 {
             $cadena .= "</ul>";
         }
         return $cadena;
-    }
-
-    public function __toString(): string
-    {
-        $string = parent::__toString();
-        if (count($this->telefons) > 0){
-            $string .= "<ul>";
-            foreach ($this->telefons as $telefon) {
-                $string .= "<li>" . $telefon . "</li>";
-            }
-            $string .= "</ul>";
-        }
-        return $string;
     }
 }

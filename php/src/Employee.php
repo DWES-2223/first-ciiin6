@@ -1,8 +1,22 @@
 <?php
 
-class Empleado extends Persona8 {
-    protected int $sou;
-    protected $telefons = array();
+use JetBrains\PhpStorm\Pure;
+
+class Employee extends Worker {
+
+    protected float $horasTrabajadas;
+    protected float $precioPorHora;
+
+    /**
+     * @param float $horasTrabajadas
+     * @param float $precioPorHora
+     */
+   public function __construct(float $horasTrabajadas, float $precioPorHora,string $nom, string $cognoms, string $edat)
+    {
+        parent::__construct($nom,$cognoms,$edat);
+        $this->horasTrabajadas = $horasTrabajadas;
+        $this->precioPorHora = $precioPorHora;
+    }
 
     public function setSueldo(int $sou): void
     {
@@ -15,14 +29,13 @@ class Empleado extends Persona8 {
     }
 
 
-    public function getSou(): int
-    {
-        return $this->sou;
-    }
-
     public function getTelefons(): array
     {
         return $this->telefons;
+    }
+
+    public function calcularSueldo() : int {
+        return $this->horasTrabajadas * $this->precioPorHora;
     }
 
     public function anyadirTelefono(int $telefono) : void {
@@ -38,12 +51,12 @@ class Empleado extends Persona8 {
     }
 
     public function debePagarImpuestos(): bool {
-        return $this->sou > 3333;
+        return $this->calcularSueldo() > 3333;
     }
 
     public static function toHtml(Persona8|Persona $emp): string {
         $cadena = Persona8::toHtml($emp);
-        if ($emp instanceof Empleado && count($emp->telefons) > 0){
+        if ($emp instanceof Employee && count($emp->telefons) > 0){
             $cadena .= "<ul>";
             foreach ($emp->telefons as $telefon) {
                 $cadena .= "<li>" . $telefon . "</li>";
@@ -53,16 +66,5 @@ class Empleado extends Persona8 {
         return $cadena;
     }
 
-    public function __toString(): string
-    {
-        $string = parent::__toString();
-        if (count($this->telefons) > 0){
-            $string .= "<ul>";
-            foreach ($this->telefons as $telefon) {
-                $string .= "<li>" . $telefon . "</li>";
-            }
-            $string .= "</ul>";
-        }
-        return $string;
-    }
+
 }
