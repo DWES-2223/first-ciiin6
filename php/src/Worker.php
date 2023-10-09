@@ -41,8 +41,8 @@ abstract class Worker extends Person {
         return $this->sou > 3333;
     }
 
-    public static function toHtml(Persona8|Persona $emp): string {
-        $cadena = Persona8::toHtml($emp);
+    public static function toHtml(Person $emp): string {
+        $cadena = Person::toHtml($emp);
         if ($emp instanceof Worker && count($emp->telefons) > 0){
             $cadena .= "<ul>";
             foreach ($emp->telefons as $telefon) {

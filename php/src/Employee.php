@@ -65,6 +65,4 @@ class Employee extends Worker {
         }
         return $cadena;
     }
-
-
 }
