@@ -40,8 +40,8 @@ class Manager extends Worker {
         return $this->calcularSueldo() > 3333;
     }
 
-    public static function toHtml(Persona8|Persona $emp): string {
-        $cadena = Persona8::toHtml($emp);
+    public static function toHtml(Person $emp): string {
+        $cadena = Worker::toHtml($emp);
         if ($emp instanceof Manager && count($emp->telefons) > 0){
             $cadena .= "<ul>";
             foreach ($emp->telefons as $telefon) {

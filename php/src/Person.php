@@ -56,7 +56,7 @@ abstract class Person
         self::$limite_edat = $limit;
     }
 
-    public static function toHtml(Persona $p): string
+    public static function toHtml(Person $p): string
     {
         return "<p>" . $p->getNombreCompleto() . "</p>";
     }
